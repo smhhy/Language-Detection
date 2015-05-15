@@ -4,10 +4,7 @@
  */
 package InvertedIndex;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -53,12 +50,13 @@ public class ReadFiles {
                 map.put(word, 1);
             }
         }
-   /*     for (String k : map.keySet()) {
-
-            System.out.println(k + " : " + map.get(k));
-           
-        }
-        */
+        /*
+         * for (String k : map.keySet()) {
+         *
+         * System.out.println(k + " : " + map.get(k));
+         *
+         * }
+         */
         String everythingfa = fa.toString();
         everythingfa = everythingfa.replace("\r", " ");
         everythingfa = everythingfa.replace("\n", " ");
@@ -80,6 +78,7 @@ public class ReadFiles {
         everythingfa = everythingfa.replace("'", " ");
         everythingfa = everythingfa.replace("\"", " ");
         everythingfa = everythingfa.replace("ي", "ی");
+        everythingfa = everythingfa.replace("ك", "ک");
 
         for (String wordfa : everythingfa.split(" ")) {
             if (mapfa.containsKey(wordfa)) {
@@ -88,10 +87,29 @@ public class ReadFiles {
                 mapfa.put(wordfa, 1);
             }
         }
-        for (String h : mapfa.keySet()) {
+        saveen(map);
+        savepers(mapfa);
+    }
 
-            System.out.println(h + " : " + mapfa.get(h));
-           
-        }
+    public static void savepers(Object a) throws FileNotFoundException, IOException {
+
+        FileOutputStream fileOut = new FileOutputStream("persian.ser");
+        ObjectOutputStream out = new ObjectOutputStream(fileOut);
+        out.writeObject(a);
+        out.close();
+        fileOut.close();
+        System.out.println("Persian hashmap is saved in persian.ser");
+
+    }
+
+    public static void saveen(Object a) throws FileNotFoundException, IOException {
+
+        FileOutputStream fileOut = new FileOutputStream("english.ser");
+        ObjectOutputStream out = new ObjectOutputStream(fileOut);
+        out.writeObject(a);
+        out.close();
+        fileOut.close();
+        System.out.println("English hashmap is saved in english.ser");
+
     }
 }
