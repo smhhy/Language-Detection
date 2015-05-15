@@ -39,6 +39,10 @@ public class Tashih {
         String vorodi = vorodi1.toString();
         vorodi = vorodi.replace("\r", " ");
         vorodi = vorodi.replace("\n", " ");
+        vorodi = vorodi.replace(".", " ");
+        vorodi = vorodi.replace("،", " ");
+        vorodi = vorodi.replace(":", " ");
+        vorodi = vorodi.replace("\"", " ");
         vorodi = vorodi.toLowerCase() ;
         
         for (String kalame : vorodi.split(" ")) {
