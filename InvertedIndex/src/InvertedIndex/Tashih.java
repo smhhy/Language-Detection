@@ -77,7 +77,7 @@ public class Tashih {
             flag = 1 ;
         }
         if (flag == 0){
-            
+            khorooji += kal ;
         }
     }
     public static String convertfa(String enkal){
