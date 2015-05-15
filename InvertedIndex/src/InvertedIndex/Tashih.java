@@ -43,7 +43,7 @@ public class Tashih {
         vorodi = vorodi.replace("،", " ");
         vorodi = vorodi.replace(":", " ");
         vorodi = vorodi.replace("\"", " ");
-        vorodi = vorodi.toLowerCase() ;
+        
         
         for (String kalame : vorodi.split(" ")) {
             yaftan(kalame);
@@ -102,7 +102,8 @@ public class Tashih {
                 .replaceAll("x", "ط").replaceAll("c", "ز")
                 .replaceAll("v", "ر").replaceAll("b", "ذ")
                 .replaceAll("n", "د").replaceAll("m", "ئ")
-                .replaceAll(",", "و").replaceAll("`", "پ")      ;
+                .replaceAll(",", "و").replaceAll("`", "پ")
+                .replaceAll("C", "ژ");
         return enkal1 ;
     }
     public static  String converten(String fakal){
